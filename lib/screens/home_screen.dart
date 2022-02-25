@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -8,9 +9,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final TextEditingController _numberCtrl = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _numberCtrl.text = "9076494252";
+  }
 
   bool _Calculating = false;
-
   Widget listTile({required IconData icon,required String title}){
     return ListTile(
       leading: Icon(
@@ -43,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        width: 20,
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 30,
                             child: OutlineButton(
                               onPressed: () {},
-                              child: Text('Login'),
+                              child: Text('LOGIN'),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15),
                                 side: BorderSide(
@@ -79,6 +86,41 @@ class _HomeScreenState extends State<HomeScreen> {
                 listTile(icon: Icons.amp_stories_outlined , title: "Travel Stories"),
                 listTile(icon: Icons.mark_chat_read_outlined , title: "Terms & Conditions"),
                 listTile(icon: Icons.smart_button_outlined ,title: "Sign Out"),
+
+                Padding(
+                  padding: const EdgeInsets.only(top: 20 ),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    height: 350,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Contact Support'),
+                        SizedBox(height: 10,),
+                        Row(
+                          children: [
+                            Text('Call us:'),
+                            SizedBox(width: 10,),
+                            Text('+919076494252'),
+
+                          ],
+                        ),
+                        SizedBox(height: 5,),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              Text('Mail us:'),
+                              SizedBox(width: 10,),
+                              Text('Ajjushaikh78@gmail.com'),
+                              
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -88,7 +130,9 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text("Home"),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: ()async {
+                FlutterPhoneDirectCaller.callNumber(_numberCtrl.text);
+              },
               icon: Icon(Icons.call),
             )
           ],

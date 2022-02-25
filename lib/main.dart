@@ -1,12 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food/auth/sign_in.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:food/screens/home_screen.dart';
+//import 'package:firebase_core/firebase_core.dart';
+//import 'package:food/screens/home_screen.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main()  {
   runApp(const MyApp());
 }
 
@@ -19,11 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        
-        primarySwatch: Colors.blue,
-      ),
-      home: HomeScreen(),
+      home: LoginSignupScreen(),
     );
   }
 }
