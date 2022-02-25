@@ -178,8 +178,8 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      buildTextButton(Icons.facebook,
-                          "Facebook", Palette.facebookColor),
+                      buildTextButton(
+                          Icons.facebook, "Facebook", Palette.facebookColor),
                       buildTextButton(MaterialCommunityIcons.google_plus,
                           "Google", Palette.googleColor),
                     ],
@@ -198,9 +198,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
       margin: EdgeInsets.only(top: 20),
       child: Column(
         children: [
-          buildTextField(Icons.mail_outline, "ajjuShaikh786@gmail.com", false, true),
           buildTextField(
-              Icons.lock_outline, "**********", true, false),
+              Icons.mail_outline, "ajjuShaikh786@gmail.com", false, true),
+          buildTextField(Icons.lock_outline, "**********", true, false),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -236,12 +236,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
       margin: EdgeInsets.only(top: 20),
       child: Column(
         children: [
-          buildTextField(Icons.account_box_outlined, "User Name",
-              false, false),
-          buildTextField(
-              Icons.email_outlined, "email", false, true),
-          buildTextField(
-              Icons.lock_outline, "password", true, false),
+          buildTextField(Icons.account_box_outlined, "User Name", false, false),
+          buildTextField(Icons.email_outlined, "email", false, true),
+          buildTextField(Icons.lock_outline, "password", true, false),
           Padding(
             padding: const EdgeInsets.only(top: 10, left: 10),
             child: Row(
@@ -407,9 +404,10 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             blurRadius: 2,
                             offset: Offset(0, 1))
                       ]),
-                  child: Icon(
-                    Icons.arrow_forward,
+                  child: IconButton(
+                    icon: Icon(Icons.arrow_forward_sharp),
                     color: Colors.white,
+                    onPressed: () {},
                   ),
                 )
               : Center(),
